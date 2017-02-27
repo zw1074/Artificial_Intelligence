@@ -1,0 +1,121 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Answer	Problem 1 & Assignment 1/Custom.py	/^	Answer = raw_input('Please re-type yes or no:')$/;"	kind:variable	line:14
+Answer	Problem 1 & Assignment 1/Custom.py	/^Answer = raw_input('Do you want to show the DAG?(yes\/no):')$/;"	kind:variable	line:12
+AverageSearch	Problem 1 & Assignment 1/experiment.py	/^AverageSearch = []$/;"	kind:variable	line:12
+BFS	Problem 1 & Assignment 1/direct BFS.py	/^def BFS():$/;"	kind:function	line:3
+BFS_ID	Problem 1 & Assignment 1/utility.py	/^def BFS_ID(TaskN, TargetV, Deadline, Maxsize, NodeInfo, ConnectNode):$/;"	kind:function	line:176
+BFS_withhash	Problem 1 & Assignment 1/utility.py	/^def BFS_withhash(TaskN, TargetV, Deadline, Maxsize, NodeInfo, ConnectNode):$/;"	kind:function	line:119
+BackEnd.py	Problem 2 & Assignment 2/BackEnd.py	1;"	kind:file	line:1
+ConnectInfo	Problem 1 & Assignment 1/experiment.py	/^        ConnectInfo = []$/;"	kind:variable	line:28
+ConnectNode	Problem 1 & Assignment 1/experiment.py	/^        ConnectNode = SelectNode(ConnectInfo)$/;"	kind:variable	line:39
+Custom.py	Problem 1 & Assignment 1/Custom.py	1;"	kind:file	line:1
+DAG_Generator	Problem 1 & Assignment 1/DAG_Generator.py	/^def DAG_Generator(N, Maxsize):$/;"	kind:function	line:5
+DAG_Generator.py	Problem 1 & Assignment 1/DAG_Generator.py	1;"	kind:file	line:1
+DFSForID	Problem 1 & Assignment 1/utility.py	/^def DFSForID(TargetV, Deadline, Maxsize, NodeInfo, ConnectNode, CurrentNode):$/;"	kind:function	line:148
+DPLL.py	Problem 2 & Assignment 2/DPLL.py	1;"	kind:file	line:1
+DataClean.py	Problem 4 & Assignment 4/DataClean.py	1;"	kind:file	line:1
+Deadline	Problem 1 & Assignment 1/experiment.py	/^        Deadline = uniform($/;"	kind:variable	line:22
+ExperimentTime	Problem 1 & Assignment 1/experiment.py	/^ExperimentTime = 1000  # How many times will each size repeat$/;"	kind:variable	line:8
+FrontEnd	Problem 2 & Assignment 2/FrontEnd.py	/^def FrontEnd(Input, Outputname,BackEnd):$/;"	kind:function	line:1
+FrontEnd.py	Problem 2 & Assignment 2/FrontEnd.py	1;"	kind:file	line:1
+Group	Problem 4 & Assignment 4/DataClean.py	/^def Group(bestmatches, matrix, whole, Name, output):$/;"	kind:function	line:104
+HashFunction	Problem 1 & Assignment 1/utility.py	/^def HashFunction(NodeList):$/;"	kind:function	line:16
+HashFunction_inverse	Problem 1 & Assignment 1/utility.py	/^def HashFunction_inverse(Value):$/;"	kind:function	line:20
+HashValue	Problem 3 & Assignment 3/main.py	/^HashValue = 0$/;"	kind:variable	line:6
+Hash_inverse	Problem 3 & Assignment 3/utility.py	/^def Hash_inverse(HashValue):$/;"	kind:function	line:61
+Hashfunction	Problem 3 & Assignment 3/utility.py	/^def Hashfunction(Combination, PossibleValue, PTS, PTF):$/;"	kind:function	line:20
+Input	Problem 2 & Assignment 2/main.py	/^Input = 'Input For Backend.txt'$/;"	kind:variable	line:9
+J	Problem 1 & Assignment 1/experiment.py	/^            J = randint(I, TaskN - 1)$/;"	kind:variable	line:31
+K	Problem 1 & Assignment 1/experiment.py	/^        K = BFS_withhash($/;"	kind:variable	line:40
+L2	Problem 4 & Assignment 4/utility.py	/^def L2(vector1, vector2):$/;"	kind:function	line:6
+M	Problem 1 & Assignment 1/experiment.py	/^            M = P[I]$/;"	kind:variable	line:32
+MaxNumber	Problem 1 & Assignment 1/experiment.py	/^MaxNumber = 13  # The experiment will end at this size$/;"	kind:variable	line:7
+MaxSearch	Problem 1 & Assignment 1/experiment.py	/^MaxSearch = []$/;"	kind:variable	line:10
+Maxsize	Problem 1 & Assignment 1/Custom.py	/^Maxsize = int(raw_input("Please input the max size of queue (int):"))$/;"	kind:variable	line:6
+Maxsize	Problem 1 & Assignment 1/experiment.py	/^        Maxsize = TaskN$/;"	kind:variable	line:24
+MinNumber	Problem 1 & Assignment 1/experiment.py	/^MinNumber = 1  # The experiment will start from this size$/;"	kind:variable	line:6
+MinSearch	Problem 1 & Assignment 1/experiment.py	/^MinSearch = []$/;"	kind:variable	line:11
+N	Problem 1 & Assignment 1/Custom.py	/^N = int(raw_input("Please input the number of tasks (int):"))$/;"	kind:variable	line:5
+NodeInfo	Problem 1 & Assignment 1/experiment.py	/^        NodeInfo = []$/;"	kind:variable	line:25
+P	Problem 1 & Assignment 1/experiment.py	/^        P = range(0, TaskN)$/;"	kind:variable	line:29
+P_S_algo.py	Problem 4 & Assignment 4/P_S_algo.py	1;"	kind:file	line:1
+PorterStemmer	Problem 4 & Assignment 4/DataClean.py	/^from P_S_algo import PorterStemmer$/;"	kind:namespace	line:4
+PorterStemmer	Problem 4 & Assignment 4/P_S_algo.py	/^class PorterStemmer:$/;"	kind:class	line:34
+Ratelist	Problem 1 & Assignment 1/experiment.py	/^Ratelist = []$/;"	kind:variable	line:9
+ReadFile	Problem 1 & Assignment 1/utility.py	/^def ReadFile(filename):$/;"	kind:function	line:31
+Search	Problem 1 & Assignment 1/experiment.py	/^    Search = []$/;"	kind:variable	line:16
+SelectNode	Problem 1 & Assignment 1/utility.py	/^def SelectNode(ConnectInfo):$/;"	kind:function	line:6
+Success	Problem 1 & Assignment 1/experiment.py	/^    Success = 0$/;"	kind:variable	line:15
+Table	Problem 2 & Assignment 2/main.py	/^Table = 'Table.txt'$/;"	kind:variable	line:10
+TargetV	Problem 1 & Assignment 1/experiment.py	/^        TargetV = uniform($/;"	kind:variable	line:20
+Test_Goal	Problem 1 & Assignment 1/utility.py	/^def Test_Goal(NodeInfo, CurrentNode, TargetV, Deadline):$/;"	kind:function	line:111
+Transaction	Problem 1 & Assignment 1/utility.py	/^def Transaction(CurrentNumber, TaskN, NodeInfo, ConnectNode, Deadline):$/;"	kind:function	line:167
+__init__	Problem 4 & Assignment 4/P_S_algo.py	/^    def __init__(self):$/;"	kind:member	line:36
+backend	Problem 2 & Assignment 2/BackEnd.py	/^def backend(Input,Table):$/;"	kind:function	line:1
+bestmatches	Problem 4 & Assignment 4/DataClean.py	/^	bestmatches = kmeans(matrix, 100, cosine, 4)$/;"	kind:variable	line:128
+chance	Problem 3 & Assignment 3/utility.py	/^def chance(oldremainsidlist, reviewid, lastchoice, HashValue, SuccessList, FailureList, PS, US, UF, RC, RNumber):$/;"	kind:function	line:118
+choice	Problem 3 & Assignment 3/utility.py	/^def choice(remainsidlist, HashValue, lastreview, SuccessList, FailureList, PS, US, UF, RC, RNumber):$/;"	kind:function	line:77
+condition_probability	Problem 3 & Assignment 3/utility.py	/^def condition_probability(PTS,PTF,RNumber):$/;"	kind:function	line:44
+cons	Problem 4 & Assignment 4/P_S_algo.py	/^    def cons(self, i):$/;"	kind:member	line:52
+copy	Problem 2 & Assignment 2/DPLL.py	/^import copy$/;"	kind:namespace	line:1
+copy	Problem 3 & Assignment 3/utility.py	/^import copy$/;"	kind:namespace	line:2
+cosine	Problem 4 & Assignment 4/utility.py	/^def cosine(vector1, vector2):$/;"	kind:function	line:23
+cvc	Problem 4 & Assignment 4/P_S_algo.py	/^    def cvc(self, i):$/;"	kind:member	line:115
+dataclean	Problem 4 & Assignment 4/DataClean.py	/^def dataclean(sample, stopword):$/;"	kind:function	line:8
+direct BFS.py	Problem 1 & Assignment 1/direct BFS.py	1;"	kind:file	line:1
+doublec	Problem 4 & Assignment 4/P_S_algo.py	/^    def doublec(self, j):$/;"	kind:member	line:107
+dp	Problem 2 & Assignment 2/DPLL.py	/^def dp(Input,Output):$/;"	kind:function	line:97
+dp1	Problem 2 & Assignment 2/DPLL.py	/^def dp1(Atoms,S,V):$/;"	kind:function	line:45
+ends	Problem 4 & Assignment 4/P_S_algo.py	/^    def ends(self, s):$/;"	kind:member	line:130
+experiment.py	Problem 1 & Assignment 1/experiment.py	1;"	kind:file	line:1
+findlast	Problem 1 & Assignment 1/utility.py	/^def findlast(ConnectNode, CurrentNode, Maxsize, NodeInfo, Deadline):$/;"	kind:function	line:49
+findlast_Hash	Problem 1 & Assignment 1/utility.py	/^def findlast_Hash(queue, CurrentNumber, ConnectNode, Maxsize, NodeInfo, Deadline):$/;"	kind:function	line:82
+fobj	Problem 1 & Assignment 1/Custom.py	/^	fobj = open('sample text2.txt')$/;"	kind:variable	line:17
+fobj	Problem 1 & Assignment 1/experiment.py	/^fobj = open("result.txt", 'w')$/;"	kind:variable	line:52
+hi	Problem 2 & Assignment 2/leetcode.py	/^def hi(nums,target):$/;"	kind:function	line:13
+inputstring	Problem 3 & Assignment 3/main.py	/^		inputstring = raw_input('Please input a valid string (e.g. Yes):')$/;"	kind:variable	line:12
+inputstring	Problem 3 & Assignment 3/main.py	/^	inputstring = raw_input(maxchoice + ':')$/;"	kind:variable	line:10
+is_literal	Problem 2 & Assignment 2/DPLL.py	/^def is_literal(S):$/;"	kind:function	line:3
+is_singleton	Problem 2 & Assignment 2/DPLL.py	/^def is_singleton(S):$/;"	kind:function	line:23
+itertools	Problem 3 & Assignment 3/utility.py	/^import itertools$/;"	kind:namespace	line:1
+kmeans	Problem 4 & Assignment 4/utility.py	/^def kmeans(matrix, iteration, distance = L2, k=4):$/;"	kind:function	line:33
+leetcode.py	Problem 2 & Assignment 2/leetcode.py	1;"	kind:file	line:1
+log	Problem 4 & Assignment 4/DataClean.py	/^from math import log$/;"	kind:namespace	line:5
+m	Problem 4 & Assignment 4/P_S_algo.py	/^    def m(self):$/;"	kind:member	line:63
+main	Problem 4 & Assignment 4/main.py	/^def main():$/;"	kind:function	line:3
+main.py	Problem 1 & Assignment 1/main.py	1;"	kind:file	line:1
+main.py	Problem 2 & Assignment 2/main.py	1;"	kind:file	line:1
+main.py	Problem 3 & Assignment 3/main.py	1;"	kind:file	line:1
+main.py	Problem 4 & Assignment 4/main.py	1;"	kind:file	line:1
+math	Problem 4 & Assignment 4/utility.py	/^import math$/;"	kind:namespace	line:3
+matrix_construct	Problem 4 & Assignment 4/DataClean.py	/^def matrix_construct(Biography, method = "frequency"):$/;"	kind:function	line:68
+np	Problem 4 & Assignment 4/utility.py	/^import numpy as np$/;"	kind:namespace	line:2
+p	Problem 4 & Assignment 4/P_S_algo.py	/^    p = PorterStemmer()$/;"	kind:variable	line:348
+pearson	Problem 4 & Assignment 4/utility.py	/^def pearson(vector1, vector2):$/;"	kind:function	line:12
+pick	Problem 2 & Assignment 2/DPLL.py	/^def pick(V):$/;"	kind:function	line:29
+prepegate	Problem 2 & Assignment 2/DPLL.py	/^def prepegate(Atom,S):$/;"	kind:function	line:34
+r	Problem 4 & Assignment 4/P_S_algo.py	/^    def r(self, s):$/;"	kind:member	line:148
+random	Problem 4 & Assignment 4/utility.py	/^import random$/;"	kind:namespace	line:1
+re	Problem 4 & Assignment 4/DataClean.py	/^import re$/;"	kind:namespace	line:3
+readfile	Problem 3 & Assignment 3/utility.py	/^def readfile(inputname):$/;"	kind:function	line:4
+remainsidlist	Problem 3 & Assignment 3/main.py	/^remainsidlist = range(RNumber)$/;"	kind:variable	line:5
+reviewid	Problem 3 & Assignment 3/main.py	/^	reviewid = int(maxchoice.split(' ')[-1]) - 1$/;"	kind:variable	line:13
+setto	Problem 4 & Assignment 4/P_S_algo.py	/^    def setto(self, s):$/;"	kind:member	line:142
+stem	Problem 4 & Assignment 4/P_S_algo.py	/^    def stem(self, p, i, j):$/;"	kind:member	line:317
+step1ab	Problem 4 & Assignment 4/P_S_algo.py	/^    def step1ab(self):$/;"	kind:member	line:153
+step1c	Problem 4 & Assignment 4/P_S_algo.py	/^    def step1c(self):$/;"	kind:member	line:197
+step2	Problem 4 & Assignment 4/P_S_algo.py	/^    def step2(self):$/;"	kind:member	line:202
+step3	Problem 4 & Assignment 4/P_S_algo.py	/^    def step3(self):$/;"	kind:member	line:240
+step4	Problem 4 & Assignment 4/P_S_algo.py	/^    def step4(self):$/;"	kind:member	line:254
+step5	Problem 4 & Assignment 4/P_S_algo.py	/^    def step5(self):$/;"	kind:member	line:305
+sys	Problem 4 & Assignment 4/P_S_algo.py	/^import sys$/;"	kind:namespace	line:32
+types	Problem 1 & Assignment 1/Custom.py	/^import types$/;"	kind:namespace	line:3
+utility.py	Problem 1 & Assignment 1/utility.py	1;"	kind:file	line:1
+utility.py	Problem 3 & Assignment 3/utility.py	1;"	kind:file	line:1
+utility.py	Problem 4 & Assignment 4/utility.py	1;"	kind:file	line:1
+vowelinstem	Problem 4 & Assignment 4/P_S_algo.py	/^    def vowelinstem(self):$/;"	kind:member	line:100

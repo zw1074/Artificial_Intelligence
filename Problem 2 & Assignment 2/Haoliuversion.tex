@@ -1,0 +1,171 @@
+\documentclass{article}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+
+
+\begin{document}
+\title{AI Problem Set 2}
+\author{{\normalsize Hao Liu, NYU ID: N15932879}}
+\date{2015.9.27}
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+
+\baselineskip 0.6cm
+
+\begin{description}
+
+
+\item[1. ] \textbf{Solution:}\\
+
+\item[2. ] \textbf{Solution:}\\
+
+a.
+$C\Rightarrow(A\Leftrightarrow E)$
+
+Step 1:
+$ C\Rightarrow (A\Rightarrow E \wedge E \Rightarrow A) $
+
+Step 2:
+$ \neg C \vee ((\neg A \vee E)\wedge (\neg E \vee A)) $
+
+Step 3:
+$ (\neg C \vee \neg A \vee E) \wedge (\neg C \vee \neg E \vee A)  $
+
+Step 4:
+$ \{\neg C \vee \neg A \vee E , \: \neg C \vee \neg E \vee A \} $ \\
+
+b.
+$ (\neg C \vee E)\Rightarrow B $
+
+Step 1:
+$ \neg (\neg C \vee E)\vee B $
+
+Step 2:
+$ (C \wedge \neg E) \vee B $
+
+Step 3:
+$ (C \vee B) \wedge (\neg E \vee B) $
+
+Step 4:
+$ \{C \vee B, \: \neg E \vee B \} $\\
+
+c.
+$ D \Rightarrow \neg B $
+
+Step 1:
+$ \neg D \vee \neg B $
+
+Step 2;
+$ \{ \neg D \vee \neg B \} $\\
+
+d.
+$ (A \wedge D)\Rightarrow \neg E $
+
+Step 1:
+$ \neg(A \wedge D) \vee \neg E $
+
+Step 2:
+$ \neg A \vee \neg D \vee \neg E $
+
+Step 3:
+$ \{  \neg A \vee \neg D \vee \neg E \} $\\
+
+e.
+$C \vee D \vee E$
+
+Step 1:
+$ \{ C \vee D \vee E\} $\\
+
+f.
+$ E \Rightarrow D $
+
+Step 1:
+$ \neg E \vee D $
+
+Step 2:
+$ \{ \neg E \vee D \} $
+
+
+\item[3. ] \textbf{Solution:}
+
+Set $S_{0}= \{\neg C \vee \neg A \vee E , \: \neg C \vee \neg E \vee A,\; C \vee B, \: \neg E \vee B,\;\neg D \vee \neg B,\;\neg A \vee \neg D \vee \neg E,\;C \vee D \vee E,\;\neg E \vee D\} $
+
+Step 1:\\ Initial Value $ V_{0}$ : All atoms Unbounded.
+
+Step 2:\\
+Try $V[A]=True$, $V_{1}$ is the valuation $V_{1}[A]=True$\\
+$Propagate(A,S_{0},V_{1})$\\
+New clauses set $S_{1}=\{\neg C \vee E,\; C\vee B,\; \neg E \vee B,\; \neg D\vee \neg B,\; \neg D\vee \neg E, \; C\vee D\vee E ,\; \neg E\vee D\}$ \\
+
+Step 3:\\
+Try $V[B]=True$, $V_{2}$ is the valuation $V_{2}[A]=True,\; V_{2}[B]=True$\\
+$Propagate(B,S_{1},V_{2})$\\
+New clauses set $ S_{2}=\{ \neg C\vee E,\; \neg D,\; \neg D\vee \neg E, \; C\vee D\vee E ,\; \neg E\vee D \} $\\
+
+Step 4:\\
+$ \neg D $ is the singleton clause in the causes set. Set $V[D]=False$.\\
+$V_{3}$ is the valuation: $ V_{3}[A]=True,\; V_{3}[B]=True,\; V_{3}[D]=False $\\
+New clauses set $ S_{3}=\{ \neg C \vee E,\; C\vee E,\; \neg E \} $\\
+
+Step 5:\\
+$ \neg E $ is the singleton clause in the causes set. Set $V[E]=False$.\\
+$V_{4}$ is the valuation: $ V_{4}[A]=True,\; V_{4}[B]=True,\; V_{4}[D]=False,\; V_{4}[E]=False $\\
+New clauses set $ S_{4}=\{ \neg C,\; C \} $\\
+
+Step 6:\\
+$ \neg C $ is the singleton clause in the causes set. Set $V[C]=False$.\\
+$V_{5}$ is the valuation: $ V_{5}[A]=True,\; V_{5}[B]=True,\; V_{5}[D]=False,\; V_{5}[E]=False,\; V_{5}[C]=False $\\
+New clauses set $ S_{5}=\{C\} $\\
+The remaining clause in the set is $False$, thus return NIL and go back to Step 3.\\
+
+Step 7:\\
+Try $V[B]=False$, $V_{6}$ is the valuation $V_{6}[A]=True,\; V_{6}[B]=False$\\
+$Propagate(B,S_{1},V_{6})$\\
+New clauses set $ S_{6}=\{ \neg C\vee E,\; C,\; \neg E,\; \neg D\vee \neg E, \; C\vee D\vee E ,\; \neg E\vee D \} $\\
+
+Step 8:\\
+$ \neg C $ is the singleton clause in the causes set. Set $V[C]=True$.\\
+$V_{7}$ is the valuation: $ V_{7}[A]=True,\; V_{7}[B]=False,\;  V_{7}[C]=True $\\
+New clauses set $ S_{7}= \{ E,\; \neg E,\; \neg D\vee \neg E, \; \neg E\vee D\} $\\
+
+Step 9:\\
+$ E $ is the singleton clause in the causes set. Set $V[E]=True$.\\
+$V_{8}$ is the valuation: $ V_{8}[A]=True,\; V_{8}[B]=False,\;  V_{8}[C]=True,\; V_{8}[E]=True $\\
+New clauses set $ S_{8}= \{  \neg E,\; \neg D, \; D\} $\\
+The remaining clause $\neg E$ in the set is $False$, thus return NIL and go back to Step 2\\
+
+Step 10:\\
+Try $V[A]=False$, $V_{9}$ is the valuation $V_{9}[A]=False$\\
+$Propagate(A,S_{0},V_{9})$\\
+New clauses set $S_{9}=\{\neg C \vee \neg E,\; C\vee B,\; \neg E \vee B,\; \neg D\vee \neg B,\; C\vee D\vee E ,\; \neg E\vee D\}$ \\
+
+Step 11:\\
+Try $ V[B]=True $, $V_{10}$ is the valuation $V_{10}[A]=False,\; V_{10}[B]=True $\\
+$Propagate(B,S_{9},V_{10})$\\
+New clauses set $S_{10}=\{\neg C \vee \neg E,\;\neg D,\; C\vee D\vee E ,\; \neg E\vee D\}$ \\
+
+Step 12:\\
+$ \neg D $ is the singleton clause in the causes set. Set $V[D]=False$.\\
+$V_{11}$ is the valuation: $ V_{11}[A]=False,\; V_{11}[B]=True,\; V_{11}[D]=False $\\
+New clauses set $ S_{11}=\{ \neg C \vee \neg E,\; C\vee E,\; \neg E \} $\\
+
+Step 13:\\
+$ \neg E $ is the singleton clause in the causes set. Set $V[E]=False$.\\
+$V_{12}$ is the valuation: $ V_{12}[A]=False,\; V_{12}[B]=True,\; V_{12}[D]=False,\; V_{12}[E]=False $\\
+New clauses set $ S_{12}=\{C\} $\\
+
+Step 14:\\
+$ C $ is the singleton clause in the causes set. Set $V[C]=True$.\\
+$V_{13}$ is the valuation: $ V_{13}[A]=False,\; V_{13}[B]=True,\; V_{13}[D]=False,\; V_{13}[E]=False,\; V_{13}[C]=True $\\
+New clauses set is empty, return $V_{13}$ to the top level.
+
+\end{description}
+\end{document}

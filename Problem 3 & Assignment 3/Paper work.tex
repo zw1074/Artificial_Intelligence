@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+\usepackage{amsthm,amsfonts,amssymb,amsmath}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+% Optional PGF libraries
+\usepackage{pgflibraryarrows}
+\usepackage{pgflibrarysnakes}
+\usepackage[top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
+\usepackage{enumerate}
+\usepackage[colorlinks,linkcolor = black, anchorcolor = black,citecolor = black]{hyperref}
+
+\author{Zihao Wang\footnote{N-number: N11385738, NetID: zw1074}
+	}
+\title{\textbf{Solution for Problem Set 3}}
+\begin{document}
+	\maketitle
+	\section*{Problem 1}
+	I would like to set some functions on it.
+	\begin{itemize}
+		\item $ \mbox{Intersec}(W_i,W_j) $ returns TRUE if $ W_i $ and $ W_j $ have same element, otherwise it returns FALSE.
+		\item $ \mbox{In}(x,W) $ returns TRUE if $ W $ contains $ x $, otherwise it returns FALSE.
+	\end{itemize}
+	Then we have two constraints.
+	\begin{enumerate}[1.]
+		\item $ \forall_{i\neq j}\mbox{Intersec}(W_i,W_j) \Rightarrow \neg W_i\vee \neg W_j $
+		\item $ \bigwedge_{x\in U}\bigvee_{W:\mbox{In}(x,W)}W $
+	\end{enumerate}
+	Supposed there is a simple example: $ U=\{a,b,c,d,e,f\} $ and 
+	\begin{enumerate}[$ W_1 = $]
+		\item $ \{a,b\} $
+		\item $ \{b,c\} $
+		\item $ \{c,d\} $
+		\item $ \{d,e\} $
+		\item $ \{e,f\} $
+		\item $ \{f,a\} $
+	\end{enumerate}
+	Then we can have the following constraints:
+	\begin{enumerate}[1.]
+		\item $ \forall_{i\neq j}\mbox{Intersec}(W_i,W_j) \Rightarrow \neg W_i\vee \neg W_j $
+		\item $ W_1\vee W_6 $
+		\item $ W_1\vee W_2 $
+		\item $ W_2\vee W_3 $
+		\item $ W_3\vee W_4 $
+		\item $ W_4\vee W_5 $
+		\item $ W_5\vee W_6 $
+	\end{enumerate}
+	\section*{Problem 2}
+	\begin{enumerate}[a.]
+		\item $ \forall_{p,u} W(p,u)\Rightarrow S(p,u) $
+		\item $ \forall_uA(u,H)\wedge S(B,u)\Rightarrow L(B,u) $
+		\item $ \forall_{p,u}F(B,p)\wedge W(p,u)\Rightarrow S(B,u) $
+		\item $ \forall_p(F(T,p)\Rightarrow \exists_u A(u,H)\wedge W(p,u)) $
+		\item $ \exists_p F(T,p)\wedge F(B,p) $
+		\item $ \exists_{p,u} F(T,p)\wedge W(p,u)\wedge L(B,u) $
+		\item $ \forall_u W(G,u)\Rightarrow A(u,H) $
+		\item $ \forall_p (F(B,p)\Rightarrow \exists_u W(p,u)) $
+		\item $ \forall_u W(G,u)\Rightarrow \neg L(B,u) $
+		\item $ \neg F(B,G) $
+	\end{enumerate}
+	\section*{Problem 3}
+	Use counter example. Let (f) become (f*): $ \neg(\exists_{p,u} F(T,p)\wedge W(p,u)\wedge L(B,u)) $. Then we change b, c, d, e and f* to CNF:
+	\begin{enumerate}[1.]
+		\setcounter{enumi}{0} % n-1 start from n
+		\item $ \neg A(u,H)\vee \neg S(B,u)\vee L(B,u) $
+		\item $ \neg F(B,p)\vee \neg W(p,u)\vee S(B,u) $
+		\item $ \neg F(T,p)\vee A(sk1(p),H) $
+		\item $ \neg F(T,p)\vee W(p,sk1(p)) $
+		\item $ F(T,sk2) $ 
+		\item $ F(B,sk2) $
+		\item $ \neg F(T,p)\vee\neg W(p,u)\vee\neg L(B,u) $
+	\end{enumerate}
+	Then we have the following steps.
+	\begin{enumerate}[\textbf{Step} 1.]
+		\item $ 5+3 $, $ p\leftarrow sk2 $ we have 8. $ A(sk1(sk2),H) $
+		\item $ 5+4 $, $ p\leftarrow sk2 $ we have 9. $ W(sk2,sk1(sk2)) $
+		\item $ 5+7 $, $ p\leftarrow sk2 $ we have 10. $ \neg W(sk2,u)\vee \neg L(B,u) $
+		\item $ 6+2 $, $ p\leftarrow sk2 $ we have 11. $ \neg W(sk2,u)\vee S(B,u) $
+		\item $ 9+10 $, $ u\leftarrow sk1(sk2) $ we have 12. $ \neg L(B,sk1(sk2)) $
+		\item $ 9+11 $, $ u\leftarrow sk1(sk2) $ we have 13. $ S(B,sk1(sk2)) $
+		\item $ 8+1 $, $ u\leftarrow sk1(sk2) $ we have 14. $ \neg S(B,sk1(sk2))\vee L(B,sk1(sk2)) $
+		\item $ 14+12 $, we have 15. $ \neg S(B,sk1(sk2)) $
+		\item $ 15+13 $, we have 16. NULL
+	\end{enumerate}
+	Then we finish the proof.
+	\section*{Problem 4}
+	Use counter example. Let (j) become (j*): $ F(B,G) $. Then change (b), (c), (g), (h), (i) and (j*) to CNF:
+	\begin{enumerate}[1.]
+		\item $ \neg A(u,H)\vee \neg S(B,u)\vee L(B,u) $
+		\item $ \neg F(B,p)\vee \neg W(p,u)\vee S(B,u) $
+		\item $ \neg W(G,u)\vee A(u,H) $
+		\item $ \neg F(B,p)\vee W(p,sk1(p)) $
+		\item $ \neg W(G,u)\vee \neg L(B,u) $
+		\item $ F(B,G) $
+	\end{enumerate}
+	Follow the resolution step:
+	\begin{enumerate}[\textbf{Step} 1.]
+		\item $ 4 + 6 $, $ p\leftarrow G $ we have 7. $ W(G,sk1(G)) $
+		\item $ 2+6 $, $ p\leftarrow G $ we have 8. $ \neg W(G,u)\vee S(B,u) $
+		\item $ 7+5 $, $ u\leftarrow sk1(G) $ we have 9. $ \neg L(B,sk1(G)) $
+		\item $ 7+3 $, $ u\leftarrow sk1(G) $ we have 10. $ A(sk1(G),H) $
+		\item $ 7+8 $, $ u\leftarrow sk1(G) $ we have 11. $ S(B,sk1(G)) $
+		\item $ 9+1 $, $ u\leftarrow sk1(G) $ we have 12. $ \neg A(sk1(G),H)\vee \neg S(B,sk1(G)) $
+		\item $ 12+10 $, we have 13. $ \neg S(B,sk1(G)) $
+		\item $ 13+11 $, we have 14. NULL
+	\end{enumerate}
+	Then we finish the proof.
+\end{document}

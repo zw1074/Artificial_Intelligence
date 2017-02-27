@@ -1,0 +1,310 @@
+\documentclass[11pt]{article}
+\usepackage{amsthm,amsfonts,amssymb,amsmath}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+% Optional PGF libraries
+\usepackage{pgflibraryarrows}
+\usepackage{pgflibrarysnakes}
+\usepackage[top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
+\usepackage{enumerate}
+\usepackage[colorlinks,linkcolor = black, anchorcolor = black,citecolor = black]{hyperref}
+
+\author{Zihao Wang\footnote{N-number: N11385738, NetID: zw1074}
+	}
+\title{\textbf{Solution for Problem Set 2}}
+\begin{document}
+	\maketitle
+	\section*{Problem 1}
+	Follow alpha-beta pruning algorithm, I finally get this diagram.
+	\begin{figure}[!htbp]
+		\centering 
+		\includegraphics[height=6cm ,width=12cm]{ps2.gif}
+		\caption{Diagram for \textbf{Problem 1}} \label{figure7}
+	\end{figure}
+	
+	In this diagram, 'b' means $ \beta $ value in this node, which means the upper bound of the best choice, and 'a' means $ \alpha $ value in this node, which means the lower bound of the best choice (under this sub-tree). Also 'v' means the best value, the red slashing line means the pruning and the blue line means the best move.
+	
+	\section*{Problem 2}
+	\begin{enumerate}[1.]
+		\item
+			\begin{align*}
+				&~~~~~ C\Rightarrow (A\Leftrightarrow E)\\
+				&\Leftrightarrow \neg C\vee ((A\Rightarrow E)\land (E\Rightarrow A))\\
+				&\Leftrightarrow \neg C\vee ((\neg A\vee E)\land (\neg E\vee A))\\
+				&\Leftrightarrow (\neg C\vee \neg A\vee E)\land (\neg C\vee\neg E\vee A)
+			\end{align*}
+		\item
+			\begin{align*}
+				&~~~~~ (\neg C \vee E)\Rightarrow B\\
+				&\Leftrightarrow \neg(\neg C \vee E)\vee B\\
+				&\Leftrightarrow (C\land \neg E)\vee B\\
+				&\Leftrightarrow (C\vee B)\land (\neg E\vee B)
+			\end{align*}
+		\item
+			\begin{align*}
+				&~~~~~ D\Rightarrow \neg B\\
+				&\Leftrightarrow \neg D\vee \neg B
+			\end{align*}
+		\item
+			\begin{align*}
+				&~~~~~ (A\land D)\Rightarrow \neg E\\
+				&\Leftrightarrow \neg(A\land D)\vee \neg E\\
+				&\Leftrightarrow \neg A\vee \neg D\vee \neg E
+			\end{align*}
+		\item
+			This is clearly a clausal form.
+		\item
+			\begin{align*}
+				&~~~~~ E\Rightarrow D\\
+				&\Leftrightarrow \neg E\vee D
+			\end{align*}
+	\end{enumerate}
+	\section*{Problem 3}
+	Initial set of clauses S0:
+	\begin{enumerate}[1.]
+		\item $ \neg C\vee \neg A\vee E $
+		\item $ \neg C\vee\neg E\vee A $
+		\item $ C\vee B $
+		\item $ \neg E\vee B $
+		\item $ \neg D\vee \neg B $
+		\item $ \neg A\vee \neg D\vee \neg E $
+		\item $ C\vee D\vee E $
+		\item $ \neg E\vee D $
+	\end{enumerate}
+	Initial valuation V0: All atoms unbound. Sequence of calls.
+	
+	\begin{enumerate}[I.]
+		\item Call dp1(ATOMS,S0,V0)
+		
+		No pure literals, no singleton clauses.
+		
+		Try V[A] := TRUE; V1[A] = TRUE.
+		
+		Call propagate(A,S0,V1): Delete clause 2, delete $ \neg A $ from 1, 6
+		
+		New set of clauses S1:
+		
+		1. $ \neg C\vee E $
+		
+		3. $ C\vee B $
+		
+		4. $ \neg E\vee B $
+		
+		5. $ \neg D\vee \neg B $
+		
+		6. $ \neg D\vee \neg E $
+		
+		7. $ C\vee D\vee E $
+		
+		8. $ \neg E\vee D $
+		\item Call dp1(ATOMS,S1,V1)
+		
+		No pure literals, no singleton clauses.
+		
+		Try V[B] := TRUE; V2 is the valuation V2[B] = TRUE, V2[A] = TRUE.
+		
+		Call propagate(B,S1,V2): Delete clauses 3 and 4, delete $ \neg B $ from 5.
+		
+		New set of clauses S2:
+		
+		1. $ \neg C\vee E $
+		
+		5. $ \neg D $
+		
+		6. $ \neg D\vee \neg E $
+		
+		7. $ C\vee D\vee E $
+		
+		8. $ \neg E\vee D $
+		
+		\item Call dp1(ATOMS, S2, V2)
+		
+		5 is a singleton clause with literal $ \neg D $;
+		
+		V[D] = FALSE;
+		
+		V3 is the valuation V3[D] = FALSE, V3[B] = TRUE, V3[A] = TRUE.
+		
+		Call propagate(D,S2,V3): Delete clauses 5 and 6, delete $ D $ from 7 and 8.
+		
+		New set of clauses S3:
+		
+		1. $ \neg C\vee E $
+		
+		7. $ C\vee E $
+		
+		8. $ \neg E $
+		\\
+		\\
+		8 is a singleton clause with literal $ \neg E $;
+		
+		V[E] = FALSE;
+		
+		V4 is the valuation V4[E] = FALSE, V4[D] = FALSE, V4[B] = TRUE, V4[A] = TRUE.
+		
+		Call propagate(E,S3,V4): Delete clause 8, delete $ E $ from 1 and 7.
+		
+		New set of clause S4:
+		
+		1. $ \neg C $
+		
+		7. $ C $
+		\\
+		\\
+		1 is a singleton clause with literal $ \neg C $;
+		
+		V[C] = FALSE;
+		
+		V5 is the valuation V5[C] = FALSE, V4[E] = FALSE, V4[D] = FALSE, V4[B] = TRUE, V4[A] = TRUE.
+		
+		Call propagate(C,S4,V5): Delete clause 1, delete $ C $ from 7.
+		
+		New set of clauses S5:
+		
+		7. $ \emptyset $
+
+		7 is the empty clause.
+		
+		III returns NIL to II.
+	\end{enumerate}
+	
+	II. continuing.
+	
+	Try V[B] := FALSE; V6 is the valuation V6[B] = FALSE, V6[A] = TRUE.
+	
+	Call propagate(B,S1,V6): Delete clause 5, delete $ B $ from 3 and 4.
+	
+	New set of clauses S6:
+	
+	1. $ \neg C\vee E $
+	
+	3. C
+	
+	4. $ \neg E $
+	
+	6. $ \neg D\vee \neg E $
+	
+	7. $ C\vee D\vee E $
+	
+	8. $ \neg E\vee D $
+	
+	\begin{enumerate}[IV.]
+		\item Call dp1(ATOMS, S6, V6)
+		
+		3 is a singleton clause with literal $ C $;
+		
+		V[C] = TRUE; V7 is the valuation V7[C] = TRUE, V7[B] = FALSE, V7[A] = TRUE.
+		
+		Call propagate(C,S6,V7): Delete clause 3 and 7, delete $ \neg C $ from 1.
+		
+		New set of clauses S7:
+		
+		1. $ E $
+		
+		4. $ \neg E $
+		
+		6. $ \neg D\vee \neg E $
+		
+		8. $ \neg E\vee D $ 
+		\\
+		\\
+		1 is a singleton clause with literal $ E $;
+		
+		V[E] = TRUE; V8 is the valuation V8[E] = TRUE, V8[C] = TRUE, V8[B] = FALSE, V7[A] = TRUE.
+		
+		Call propagate(E,S7,V8): Delete clause 1, delete $ \neg E $ from 4, 6 and 8.
+		
+		New set of clauses S8:
+		
+		4. $ \emptyset $
+		
+		6. $ \neg D $
+		
+		8. $ D $
+		
+		4 is the empty clause.
+		
+		IV returns NIL to II.
+	\end{enumerate}
+	
+	II having failed with both TRUE and FALSE for B, return NIL to I.
+	\\
+	\\
+	I continuing
+	
+	Try V[A] = FALSE; V9 is the valuation V9[A] = FALSE.
+	
+	Call propagate(A,S0,V9); Delete clause 1 and 6, delete $ A $ from 2
+	
+	New set of clauses S9:
+	
+	2. $ \neg C \vee \neg E $
+	
+	3. $ C\vee B $
+	
+	4. $ \neg E\vee B $
+	
+	5. $ \neg D\vee\neg B $
+	
+	7. $ C\vee D\vee E $
+	
+	8. $ \neg E\vee D $
+	
+	\begin{enumerate}[V.]
+		\item Call dp1(ATOMS, S9, V9).
+		
+		No pure literals, no singleton clauses.
+		
+		Try V[B] := TRUE; V10 is the valuation V10[B] = TRUE, V10[A] = FALSE.
+		
+		Call propagate(B,S9,V10): Delete clauses 3 and 4, delete $ \neg B $ from 5
+		
+		New set of clauses S10:
+		
+		2. $ \neg C \vee \neg E $
+		
+		5. $ \neg D $
+		
+		7. $ C\vee D\vee E $
+		
+		8. $ \neg E\vee D $
+		\\
+		\\
+		5 is a singleton with literal $ \neg D $;
+		
+		V[D] = FALSE; V11 is the valuation V11[D] = FALSE, V11[B] = TRUE, V11[A] = FALSE.
+		
+		Call propagate(D,S10,V11): Delete clause 5, delete $ D $ from 7 and 8.
+		
+		New set of S11:
+		
+		2. $ \neg C \vee \neg E $
+		
+		7. $ C\vee E $
+		
+		8. $ \neg E $
+		\\
+		\\
+		8 is a singleton with literal $ \neg E $;
+		
+		V[E] = FALSE; V12 is the valuation V12[E] = FALSE, V12[D] = FALSE, V12[B] = TRUE, V12[A] = FALSE.
+		
+		Call propagate(E,S11,V12): Delete clauses 2 and 8, delete $ E $ from 7
+		
+		New set of S12:
+		
+		7. $ C $
+		\\
+		\\
+		7 is a singleton with literal $ C $;
+		
+		V[C] = TRUE; V13 is the valuation V13[C] = TRUE, V13[E] = FALSE, V13[D] = FALSE, V13[B] = TRUE, V13[A] = FALSE.
+		
+		Call propagate(C,S12,V13): Delete clause 7.
+		
+		S13 is the empty set of clauses.
+		
+		Return V13 to the top level.
+	\end{enumerate}
+	$ \Delta $
+\end{document}
